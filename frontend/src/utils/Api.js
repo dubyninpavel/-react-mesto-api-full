@@ -2,8 +2,8 @@ class Api {
     constructor(url) {
         this.url = url;
         this.headers = {
-            authorization: '3b8f665f-518c-446a-9770-40da05a26e92',
             'Content-type': 'application/json',
+            authorization: this.getToken(),
         };
     }
 
@@ -108,8 +108,12 @@ class Api {
             return this._getPromiseResult(res);
         })
     }
+
+    getToken(){
+        return `Bearer ${localStorage.getItem('token')}`;
+    }
 }
 
-const dataUser = new Api('https://nomoreparties.co/v1/cohort-43');
+const dataUser = new Api('https://api.project.mesto.russia.nomoredomains.icu');
 
 export default dataUser;

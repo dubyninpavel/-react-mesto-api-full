@@ -42,14 +42,14 @@ function App() {
         if (loggedIn) {
             api.getDataUser()
                 .then((dataUser) => {
-                    setCurrentUser(dataUser);
+                    
                 })
                 .catch((err) => {
                     console.log(err);
                 });
             api.getCards()
                 .then((cards) => {
-                    setCards(cards);
+                    setCards(cards.data);
                 })
                 .catch((err) => {
                     console.log(err);
@@ -59,19 +59,20 @@ function App() {
             const token = localStorage.getItem('token');
             if (token){
                 Auth.getContent(token)
-                .then((res) => {
-                    if (res){
-                        setDataEmail(res.data.email);
-                        setLoggedIn(true);
-                        history.push('/');
-                    }
-                })
-                .catch((err) => {
-                    console.log(err);
-                });
+                    .then((res) => {
+                        if (res){
+                            setDataEmail(res.email);
+                            setCurrentUser(res);
+                            setLoggedIn(true);
+                            history.push('/');
+                        }
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                    });
             } 
         }
-    }, [loggedIn]);
+    }, [history, loggedIn]);
 
     function handleLogin(email, password) {
         Auth.authorize({ email, password })
@@ -148,7 +149,7 @@ function App() {
         setIsLoading(true);
         api.setDataUser(dataUser)
             .then((newDataUser) => {
-                setCurrentUser(newDataUser);
+                setCurrentUser(newDataUser.data);
                 handleEditProfileClick();
             })
             .catch((err) => {
@@ -164,7 +165,7 @@ function App() {
         setIsLoading(true);
         api.updatePhotoProfile(dataAvatar)
             .then((newDataUser) => {
-                setCurrentUser(newDataUser);
+                setCurrentUser(newDataUser.data);
                 handleEditAvatarClick();
             })
             .catch((err) => {
@@ -176,11 +177,12 @@ function App() {
     }
 
     function handleCardLike({ id, likes }) {
-        const isLiked = likes.some(element => element._id === currentUser._id);
+        const isLiked = likes.some(element => element === currentUser._id);
+
         if (!isLiked) {
             api.setLikeCard(id)
                 .then((newCard) => {
-                    setCards((state) => state.map((card) => card._id === id ? newCard : card));
+                    setCards((state) => state.map((card) => card._id === id ? newCard.card : card ));
                 })
                 .catch((err) => {
                     console.log(err);
@@ -188,7 +190,7 @@ function App() {
         } else {
             api.deleteLikeCard(id)
                 .then((newCard) => {
-                    setCards((state) => state.map((card) => card._id === id ? newCard : card));
+                    setCards((state) => state.map((card) => card._id === id ? newCard.card : card));
                 })
                 .catch((err) => {
                     console.log(err);
@@ -215,7 +217,7 @@ function App() {
         setIsLoading(true);
         api.addNewCard(dataCard)
             .then((newCard) => {
-                setCards([newCard, ...cards]);
+                setCards([newCard.data, ...cards]);
                 handleAddPlaceClick();
             })
             .catch((err) => {
@@ -228,6 +230,7 @@ function App() {
 
     function signOut(){
         localStorage.removeItem('token');
+        setLoggedIn(false);
         history.push('/signin');
     }
 

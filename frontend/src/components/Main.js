@@ -30,13 +30,13 @@ function Main({ onEditAvatar, onEditProfile, onAddPlace, onCardClick, onCardLike
               <ul className="cards__list">
                 {cards.map(({ owner, likes, _id, name, link }) => (
                     <Card
-                        isOwn = {myUserId === owner._id}
+                        isOwn = {myUserId === owner}
                         handleCardClick = {onCardClick}
                         key = {_id}
                         likes = {likes}
                         name = {name}
                         link = {link}
-                        isLiked = {likes.some(element => element._id === myUserId)}
+                        isLiked = {likes.some(element => element === myUserId)}
                         onCardLike = {onCardLike}
                         onDeleteCardClick = {onDeleteCardClick}
                         id = {_id}

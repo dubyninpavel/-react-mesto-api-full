@@ -1,8 +1,10 @@
+/* eslint-disable spaced-comment */
 /* eslint-disable consistent-return */
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
-const { JWT_SECRET } = require('../config/config');
+
+const { NODE_ENV, JWT_SECRET } = process.env;
 const NotFoundError = require('../middlewares/errors/notFoundError');
 const ConflictError = require('../middlewares/errors/conflictError');
 const BadRequestError = require('../middlewares/errors/badRequestError');
@@ -90,17 +92,17 @@ const loginUser = (req, res, next) => {
               {
                 _id: user._id,
               },
-              JWT_SECRET,
+              NODE_ENV === 'production' ? JWT_SECRET : 'some-secret-key',
               {
                 expiresIn: '7d',
               },
             );
-            res.cookie('jwt', token, {
+            /*res.cookie('jwt', token, {
               maxAge: 3600000,
               httpOnly: true,
               sameSite: true,
-            });
-            res.send({ data: user.hiddenPassword() });
+            });*/
+            res.send({ data: user.hiddenPassword(), token });
           } else {
             next(new UnauthorizedError('Неправльный email или пароль'));
           }
