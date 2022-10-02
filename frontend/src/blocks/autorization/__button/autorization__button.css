@@ -1,0 +1,21 @@
+.autorization__button {
+    margin: 194px 0 0 0;
+    height: 50px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #000000;
+}
+
+.autorization__button:hover {
+    opacity: .5;
+}
+
+@media (max-width: 450px) {
+    .autorization__button {
+        font-size: 16px;
+        line-height: 19px;
+        margin: 148px 0 0 0;
+    }
+}

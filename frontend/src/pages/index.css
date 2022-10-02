@@ -1,0 +1,82 @@
+@import url(../vendor/normalize.css);
+
+@import url(../vendor/font/Inter\ Web/inter.css);
+
+@import url(../blocks/page/page.css);
+
+@import url(../blocks/header/header.css);
+@import url(../blocks/header/__logo/header__logo.css);
+@import url(../blocks/header/__link/header__link.css);
+@import url(../blocks/header/__email/header__email.css);
+@import url(../blocks/header/__button/header__button.css);
+@import url(../blocks/header/__data/header__data.css);
+@import url(../blocks/header/__menu/header__menu.css);
+@import url(../blocks/header/__line/header__line.css);
+
+@import url(../blocks/content/content.css);
+
+@import url(../blocks/profile/profile.css);
+@import url(../blocks/profile/__container/profile__container.css);
+@import url(../blocks/profile/__main/profile__main.css);
+@import url(../blocks/profile/__info/profile__info.css);
+@import url(../blocks/profile/__window/profile__window.css);
+@import url(../blocks/profile/__name/profile__name.css);
+@import url(../blocks/profile/__edit-button/profile__edit-button.css);
+@import url(../blocks/profile/__subline/profile__subline.css);
+@import url(../blocks/profile/__add-button/profile__add-button.css);
+@import url(../blocks/profile/__avatar/profile__avatar.css);
+@import url(../blocks/profile/__image/profile__image.css);
+
+@import url(../blocks/cards/cards.css);
+@import url(../blocks/cards/__list/cards__list.css);
+@import url(../blocks/cards/__item/cards__item.css);
+@import url(../blocks/cards/__delete-button/cards__delete-button.css);
+@import url(../blocks/cards/__photo/cards__photo.css);
+@import url(../blocks/cards/__container/cards__container.css);
+@import url(../blocks/cards/__place/cards__place.css);
+@import url(../blocks/cards/__like/cards__like.css);
+@import url(../blocks/cards/__like/_active/cards__like_active.css);
+@import url(../blocks/cards/__like-container/cards__like-container.css);
+@import url(../blocks/cards/__count-likes/cards__count-likes.css);
+@import url(../blocks/cards/__delete-button/_active/cards__delete-button_active.css);
+
+@import url(../blocks/footer/footer.css);
+@import url(../blocks/footer/__copyright/footer__copyright.css);
+
+@import url(../blocks/popup/popup.css);
+@import url(../blocks/popup/_is-active/popup_is-active.css);
+@import url(../blocks/popup/__content/popup__content.css);
+@import url(../blocks/popup/__close/popup__close.css);
+@import url(../blocks/popup/__heading/popup__heading.css);
+@import url(../blocks/popup/__form/popup__form.css);
+@import url(../blocks/popup/__name/popup__name.css);
+@import url(../blocks/popup/__subline/popup__subline.css);
+@import url(../blocks/popup/__save/popup__save.css);
+@import url(../blocks/popup/__image/popup__image.css);
+@import url(../blocks/popup/__photo/popup__photo.css);
+@import url(../blocks/popup/__text/popup__text.css);
+@import url(../blocks/popup/__container/popup__container.css);
+@import url(../blocks/popup/__transition/popup__transition.css);
+@import url(../blocks/popup/__fieldset/popup__fieldset.css);
+@import url(../blocks/popup/__input/_error/popup__input_error.css);
+@import url(../blocks/popup/__button/_disabled/popup__button_disabled.css);
+@import url(../blocks/popup/__content/_delete-card/popup__content_delete-card.css);
+@import url(../blocks/popup/__delete/popup__delete.css);
+@import url(../blocks/popup/__content/_avatar/popup__content_avatar.css);
+@import url(../blocks/popup/__content/_register/popup__content_register.css);
+
+@import url(../blocks/autorization/autorization.css);
+@import url(../blocks/autorization/__title/autorization__title.css);
+@import url(../blocks/autorization/__form/autorization__form.css);
+@import url(../blocks/autorization/__input/autorization__input.css);
+@import url(../blocks/autorization/__button/autorization__button.css);
+@import url(../blocks/autorization/__register/_subtitle/autorization__register_subtitle.css);
+@import url(../blocks/autorization/__register/_link/autorization__register_link.css);
+
+@import url(../blocks/tooltip/__subtitle/tooltip__subtitle.css);
+@import url(../blocks/tooltip/__image/tooltip__image.css);
+
+@import url(../blocks/notfound/notfound.css);
+@import url(../blocks/notfound/__title/notfound__title.css);
+@import url(../blocks/notfound/__text/notfound__text.css);
+@import url(../blocks/notfound/_to-main/notfound_to-main.css);

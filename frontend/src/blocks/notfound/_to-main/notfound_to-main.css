@@ -1,0 +1,10 @@
+.notfound_to-main {
+    font-size: 18px;
+    line-height: 22px;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.notfound_to-main:hover {
+    color: blue;
+}

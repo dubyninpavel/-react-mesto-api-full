@@ -1,0 +1,14 @@
+.header__button {
+    margin: 0 0 0 25px;
+    padding: 0;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    border: none;
+    color: #A9A9A9;
+    background-color: black;
+}
+
+.header__button:hover {
+    opacity: .5;
+}

@@ -1,0 +1,8 @@
+.autorization__register_link {
+    text-decoration: none;
+    color: white;
+}
+
+.autorization__register_link:hover {
+    opacity: .5;
+}

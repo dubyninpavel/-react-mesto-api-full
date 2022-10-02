@@ -1,0 +1,12 @@
+.profile__window {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media (max-width: 650px) {
+    .profile__window {
+        justify-content: flex-start;
+        margin-bottom: 7px;
+    }
+}

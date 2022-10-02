@@ -1,0 +1,11 @@
+.header__menu {
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin: -4px 28px 0 0;
+    background-color: black;
+}
+
+.header__menu:hover {
+    opacity: 0.5;
+}
