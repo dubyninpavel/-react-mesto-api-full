@@ -39,10 +39,26 @@ function App() {
     }, [windowWidth]);
 
     useEffect(() => {
+        if (localStorage.getItem('token')) {
+            const token = localStorage.getItem('token');
+            if (token){
+                Auth.getContent(token)
+                    .then((res) => {
+                        if (res){
+                            setDataEmail(res.email);
+                            setLoggedIn(true);
+                            history.push('/');
+                        }
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                    });
+            } 
+        }
         if (loggedIn) {
             api.getDataUser()
                 .then((dataUser) => {
-                    
+                    setCurrentUser(dataUser);
                 })
                 .catch((err) => {
                     console.log(err);
@@ -54,23 +70,6 @@ function App() {
                 .catch((err) => {
                     console.log(err);
                 });
-        }
-        if (localStorage.getItem('token')) {
-            const token = localStorage.getItem('token');
-            if (token){
-                Auth.getContent(token)
-                    .then((res) => {
-                        if (res){
-                            setDataEmail(res.email);
-                            setCurrentUser(res);
-                            setLoggedIn(true);
-                            history.push('/');
-                        }
-                    })
-                    .catch((err) => {
-                        console.log(err);
-                    });
-            } 
         }
     }, [history, loggedIn]);
 

@@ -3,7 +3,7 @@ class Api {
         this.url = url;
         this.headers = {
             'Content-type': 'application/json',
-            authorization: this.getToken(),
+            authorization: `Bearer ${localStorage.getItem('token')}`,
         };
     }
 
@@ -21,7 +21,10 @@ class Api {
     getCards() {
         return fetch(`${this.url}/cards`, {
             method: 'GET',
-            headers: this.headers,
+            headers: {
+                'Content-type': 'application/json',
+                authorization: this.getToken(),
+            },
         })
         .then((res) => {
             return this._getPromiseResult(res);
@@ -31,7 +34,10 @@ class Api {
     getDataUser() {
         return fetch(`${this.url}/users/me`, {
             method: 'GET',
-            headers: this.headers,
+            headers: {
+                'Content-type': 'application/json',
+                authorization: this.getToken(),
+            },
         })
         .then((res) => {
             return this._getPromiseResult(res);
@@ -41,7 +47,10 @@ class Api {
     setDataUser(data) {
         return fetch(`${this.url}/users/me`, {
             method: "PATCH",
-            headers: this.headers,
+            headers: {
+                'Content-type': 'application/json',
+                authorization: this.getToken(),
+            },
             body: JSON.stringify({
                 name: data.name,
                 about: data.about
@@ -55,7 +64,10 @@ class Api {
     addNewCard(data) {
         return fetch(`${this.url}/cards`, {
             method: 'POST',
-            headers: this.headers,
+            headers: {
+                'Content-type': 'application/json',
+                authorization: this.getToken(),
+            },
             body: JSON.stringify({
                 name: data.name,
                 link: data.link
@@ -69,7 +81,10 @@ class Api {
     deleteCard(cardId) {
         return fetch(`${this.url}/cards/${cardId}`, {
             method: 'DELETE',
-            headers: this.headers,
+            headers: {
+                'Content-type': 'application/json',
+                authorization: this.getToken(),
+            },
         })
         .then((res) => {
             return this._getPromiseResult(res);
@@ -79,7 +94,10 @@ class Api {
     setLikeCard(cardId) {
         return fetch(`${this.url}/cards/${cardId}/likes`, {
             method: 'PUT',
-            headers: this.headers,
+            headers: {
+                'Content-type': 'application/json',
+                authorization: this.getToken(),
+            },
         })
         .then((res) => {
             return this._getPromiseResult(res);
@@ -89,7 +107,10 @@ class Api {
     deleteLikeCard(cardId) {
         return fetch(`${this.url}/cards/${cardId}/likes`, {
             method: 'DELETE',
-            headers: this.headers,
+            headers: {
+                'Content-type': 'application/json',
+                authorization: this.getToken(),
+            },
         })
         .then((res) => {
             return this._getPromiseResult(res);
@@ -99,7 +120,10 @@ class Api {
     updatePhotoProfile(data) {
         return fetch(`${this.url}/users/me/avatar`, {
             method: 'PATCH',
-            headers: this.headers,
+            headers: {
+                'Content-type': 'application/json',
+                authorization: this.getToken(),
+            },
             body: JSON.stringify({
                 avatar: data.avatar,
             })
